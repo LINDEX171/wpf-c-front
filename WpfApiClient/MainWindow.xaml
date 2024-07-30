@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfApiClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApiClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="585" Width="836">
+    <Grid>
+        <StackPanel Margin="10">
+            <!-- Section pour l'envoi de données -->
+            <TextBlock Text="Nom" Margin="5"/>
+            <TextBox x:Name="NomTextBox" Margin="5"/>
+
+            <TextBlock Text="Prénom" Margin="5"/>
+            <TextBox x:Name="PrenomTextBox" Margin="5"/>
+
+            <TextBlock Text="Âge" Margin="5"/>
+            <TextBox x:Name="AgeTextBox" Margin="5"/>
+
+            <Button Content="Envoyer" Margin="5" Click="OnSendButtonClick"/>
+
+            <TextBlock x:Name="ResponseTextBlock" Margin="5" TextWrapping="Wrap"/>
+
+            <!-- Séparateur -->
+            <Separator Margin="10"/>
+
+            <!-- Section pour charger et afficher les données -->
+            <Button Content="Charger Données" Margin="5" Click="OnLoadDataButtonClick"/>
+
+            <DataGrid x:Name="DataGrid" Margin="5" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*"/>
+                    <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="*"/>
+                    <DataGridTextColumn Header="Âge" Binding="{Binding Age}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
